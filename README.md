@@ -128,10 +128,6 @@ plt.show()
 
 ## **Result**
 
-The Holt-Winters method successfully captured the **trend and seasonal pattern** of monthly mean temperature.
-
-* The RMSE and MAE values indicate the accuracy of the model.
-* The final 12-month forecast shows the expected seasonal fluctuations in temperature.
-* This method is effective for **seasonal time series forecasting** such as weather, sales, or energy consumption.
+The Holt-Winters model effectively captured the trend and seasonality, showing accurate temperature forecasts (low RMSE/MAE) and clear 12-month seasonal patterns.
 
 
