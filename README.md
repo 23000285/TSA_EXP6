@@ -10,50 +10,21 @@ To apply the Holt-Winters exponential smoothing method for time series forecasti
 
 ## **Algorithm**
 
-1. **Import Libraries**
-   Load required libraries: pandas, numpy, matplotlib, statsmodels, sklearn.
+1. Import Libraries: pandas, numpy, matplotlib, statsmodels, sklearn.
 
-2. **Load Dataset**
+2. Load Data: Read weatherHistory.csv, convert Formatted Date to datetime, set as index.
 
-   * Read `weatherHistory.csv`.
-   * Convert `Formatted Date` column to datetime.
-   * Set datetime as the index.
+3. Preprocess: Resample to monthly mean temperature and scale using MinMaxScaler.
 
-3. **Preprocessing**
+4. Decompose: Apply seasonal decomposition (additive, period = 12).
 
-   * Resample the dataset to **monthly mean temperature** (`MS`).
-   * Scale values using **MinMaxScaler** to stabilize the model (shift to positive values).
+5. Split Data: 80% training, 20% testing.
 
-4. **Seasonal Decomposition**
+6. Train Model: Use Exponential Smoothing (trend = add, seasonal = mul, periods = 12).
 
-   * Apply `seasonal_decompose` with additive model and period = 12 months.
-   * Plot **trend, seasonality, and residuals**.
+7. Evaluate: Forecast test set, plot results, compute RMSE and MAE.
 
-5. **Train-Test Split**
-
-   * Split the dataset into 80% training and 20% testing.
-
-6. **Model Training**
-
-   * Use **ExponentialSmoothing** with:
-
-     * `trend='add'` (additive trend)
-     * `seasonal='mul'` (multiplicative seasonality)
-     * `seasonal_periods=12` (yearly seasonality)
-   * Fit the model on training data.
-
-7. **Model Evaluation**
-
-   * Forecast values for the test set.
-   * Plot **train, test, and predictions**.
-   * Compute error metrics: **RMSE, MAE**.
-
-8. **Final Forecasting**
-
-   * Train model on full dataset.
-   * Forecast **next 12 months**.
-   * Plot final forecast results.
-
+8. Final Forecast: Retrain on full data and forecast next 12 months.
 ---
 
 ## **Program:**
